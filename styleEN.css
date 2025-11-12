@@ -1,0 +1,2136 @@
+:root {
+    --deep-purple: #150A1F;
+    --white: #FFFFFF;
+    --beige: #BDACAC;
+    --galaxy-blue: #21202D;
+  
+    --gradient-color-1: #0F0716;
+    --gradient-color-2: #2F1645;
+    --gradient-color-3: #55277C;
+
+    --weight400: 200;
+  
+    --bg-gradient: radial-gradient(circle at center,
+        var(--gradient-color-1) 10%,
+        var(--gradient-color-2) 100%,
+        var(--gradient-color-3) 100%);
+  
+    --menu:rgb(41, 38, 38);
+    --hover-submit: rgba(29, 14, 42, 1);
+    --filter: brightness(1);
+  }
+  
+  .dark-mode{
+    --bg-gradient:  #BDACAC;
+    --beige: #7e7a7a;
+    --menu: rgb(117, 117, 117);
+    --hover-submit: #6d6568;
+    --galaxy-blue: #4e4c61;
+    --filter: brightness(0.7);
+    --text-white: black;
+    --weight400: 400;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Sanchez", serif;
+    scroll-behavior: smooth;
+    
+  
+  
+    a {
+      text-decoration: none;
+    }
+  }
+  
+  body {
+    height: auto;
+    width: 100%;
+    background: var(--bg-gradient);
+    color: var(--white);
+    margin: 0;
+    --sb-track-color: #2f3a40;
+    --sb-thumb-color: #774646;
+    --sb-size: 16px;
+  }
+  
+  body::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 7px;
+  }
+  
+  @supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color)
+                       var(--sb-track-color);
+    }
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-size: 30px;
+    top: 0;
+    width: 100%;
+    height: 20vh;
+  
+  
+  
+    #copied {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.4s, bottom 0.4s;
+    }
+  
+    #copied.show {
+      opacity: 1;
+      bottom: 40px;
+      z-index: 100;
+    }
+  
+    #email {
+      transition: 0.5s;
+      padding: 3px 10px 3px 10px;
+      text-decoration: underline;
+      border-radius: 5px;
+    }
+  
+    #email:hover {
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  
+    #checkbox {
+      display: none;
+      z-index: 11;
+    }
+  
+    #checkbox:checked~.toggle{
+      position: fixed;
+    }
+  
+    .toggle {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition-duration: .3s;
+      z-index: 11;
+      right: 3%;
+      margin-top: -10px;
+    }
+  
+    .bars {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+      border-radius: 5px;
+      transition-duration: 1s;
+      z-index: 11;
+    }
+  
+    #checkbox:checked+.toggle .bars {
+      margin-left: 13px;
+    }
+  
+    #checkbox:checked+.toggle #bar2 {
+      transform: rotate(135deg);
+      margin-left: 0;
+      transform-origin: center;
+      transition-duration: 1s;
+    }
+  
+    #checkbox:checked+.toggle #bar1 {
+      transform: rotate(45deg);
+      transition-duration: 1s;
+      transform-origin: left center;
+    }
+  
+    #checkbox:checked+.toggle #bar3 {
+      transform: rotate(-45deg);
+      transition-duration: 1s;
+      transform-origin: left center;
+    }
+  
+    #checkbox:checked~#menuAsidePhone {
+      left: 0;
+      z-index: 10;
+    }
+  
+    #menuAsidePhone {
+      width: 100%;
+      background: var(--menu);
+      height: 100%;
+      border: none;
+      top: 0;
+      right: 0;
+      left: -100%;
+      border-radius: 0;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+      font-size: 45px;
+      color: white;
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      position: fixed;
+      transition: 1s;
+  
+      #logoEmail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        gap: 0;
+  
+  
+        #emailMenu{
+          margin-left: -15px;
+        }
+      }
+  
+  
+      #menuPhone {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+        height: 100%;
+        position: fixed;
+        white-space: nowrap;
+  
+        a {
+          color: white;
+        }
+  
+      }
+  
+      #rights{
+          position: absolute;
+          bottom: 2%;
+      }
+    }
+  
+    section {
+      position: absolute;
+      right: 10px;
+      display: flex;
+      gap: 30px;
+  
+      a {
+        color: white;
+      }
+    }
+  
+    #language {
+      position: relative;
+      display: inline-block;
+      margin-top: -5px;
+      margin-right: -30px;
+    }
+  
+    #lnCheck {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 90px;
+      height: 40px;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
+  
+    #lnCheck:checked~#lnAside {
+      opacity: 1;
+      top: 10px;
+      z-index: 2;
+    }
+  
+    #dropLanguage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 3px solid white;
+      border-radius: 25px;
+      width: 90px;
+      height: 40px;
+      padding: 0 10px;
+      background: var(--beige);
+      font-size: 22px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+  
+    #lnAside {
+      width: 150px;
+      height: 120px;
+      margin: 0 0 -200px -25px;
+      background-color: var(--beige);
+      border: 3px solid white;
+      border-radius: 20px;
+      color: black;
+      font-size: 20px;
+      transition: all 0.5s ease;
+      position: relative;
+      top: -50px;
+      opacity: 0;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      opacity: 0;
+      z-index: -1;
+      white-space: nowrap;
+  
+      li {
+        list-style: none;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        margin-top: -5px;
+  
+        svg {
+          width: 40px;
+          height: 40px;
+          position: relative;
+          top: 20px;
+        }
+      }
+  
+      #ptbr {
+        border-bottom: 1px solid black;
+      }
+  
+      #lnEn {
+        margin-top: -7px;
+      }
+  
+      a {
+        color: black;
+      }
+  
+      :first-child {
+        padding-bottom: 10px;
+  
+      }
+    }
+  
+    .asideText {
+      display: flex;
+      padding: 5px 0 0 5px;
+      margin-left: 5%;
+      cursor: pointer;
+    }
+  
+    /* The switch - the box around the slider */
+  .switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    --background: #28096b;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    transition: .5s;
+    border-radius: 30px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 8px -4px 0px 0px #fff000;
+    background: var(--background);
+    transition: .5s;
+  }
+  
+  input:checked + .slider {
+    background-color: #dfe7bb;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 15px -4px 0px 15px #fff000;
+  }
+  }
+  
+  #user {
+    display: grid;
+    width: 100%;
+    height: 500px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    font-size: 55px;
+  
+  
+  
+    #presentation {
+      padding-top: 7%;
+      font-size: 50px;
+  
+      .WIM {
+        line-height: 1.3;
+        color: white;
+        white-space: nowrap;
+        
+      }
+  
+      .userDescription {
+        margin-top: 1%;
+        line-height: 1.2;
+        font-weight: var(--weight400);
+        
+      }
+  
+      button {
+        height: 45px;
+        width: 150px;
+        font-size: 22px;
+        border-radius: 15px;
+        border: 0;
+        cursor: pointer;
+        margin-left: 27%;
+      }
+  
+      #btnView {
+        color: white;
+        background: linear-gradient(90deg, #260F58 0%, #5121BE 100%);
+        background-size: 200% 100%;
+        background-position: right;
+        transition: background-position 0.6s ease;
+      }
+  
+      #btnView:hover {
+        background-position: left;
+      }
+  
+  
+      #btnContact {
+        background: #57E18B;
+        background: linear-gradient(90deg, #57E18B 0%, #307B4C 100%);
+        margin-left: 2%;
+        background-size: 200% 100%;
+        background-position: left;
+        transition: background-position 0.6s ease;
+      }
+  
+      #btnContact:hover {
+        background-position: right;
+      }
+    }
+  
+  
+    #userPhoto {
+      width: 300px;
+      height: 300px;
+      border-radius: 100%;
+      border: 3px solid #5FDF8F;
+      overflow: hidden;
+      margin: 1% 0 0 30%;
+    }
+  
+    #userPhoto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+    #cvButton {
+      height: 50px;
+      width: 250px;
+      color: white;
+      font-size: 24px;
+      background: #21202D;
+      border: 3px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      border-radius: 15px;
+      margin: 3% 0 0 32%;
+      transition: all 0.4s ease;
+  
+      img {
+        width: 30px;
+        height: auto;
+      }
+    }
+  
+    #cvButton:hover {
+      background: #3a3852;
+      border: 3px solid rgba(255, 255, 255, 0.459)
+    }
+  
+    #cvButton.fade-out {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  
+    #cvButton.fade-in {
+      opacity: 1;
+      transform: scale(1);
+    }
+  
+    #cvButtonPT {
+      height: 50px;
+      width: 250px;
+      color: white;
+      font-size: 24px;
+      background: #21202D;
+      border: 3px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      border-radius: 15px;
+      margin: 3% 0 0 32%;
+      transition: all 0.4s ease;
+  
+      img {
+        width: 30px;
+        height: auto;
+      }
+    }
+  
+    #cvButtonPT:hover {
+      background: #3a3852;
+      border: 3px solid rgba(255, 255, 255, 0.459)
+    }
+  
+    #cvButtonPT.fade-out {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  
+    #cvButtonPT.fade-in {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+  }
+  
+  #slideDown {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 22%;
+  
+    img {
+      width: 200px;
+      transition: all 0.5s ease;
+      cursor: pointer;
+      filter: var(--filter);
+    }
+  
+    img:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  #aboutMe {
+    margin-top: 10vh;
+    width: 95%;
+    margin-left: 2.5%;
+    height: auto;
+    background: var(--galaxy-blue);
+    border-radius: 20px;
+  
+    #boxFlex1 {
+      display: flex;
+      width: 97%;
+      margin: 2% 0 0 1.5%;
+  
+      #title {
+        font-size: 40px;
+        margin: 2% 0 0 2%;
+  
+        p {
+          line-height: 1.6;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  
+  
+    #sklFlex {
+      display: flex;
+      justify-content: center;
+  
+      #skills {
+        display: flex;
+        justify-content: center;
+        width: 17%;
+        font-size: 40px;
+        border-bottom: 2px solid gray;
+        padding: 0 0 10px 0;
+      }
+    }
+  
+  
+  
+    #techSkl {
+      font-size: 42px;
+      display: flex;
+      width: 97%;
+      margin: 2% 0 10px 3%;
+    }
+  
+  
+    #techSkillsCarousel {
+      display: grid;
+      grid-template-columns: 60px 1fr 60px;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+  
+  
+      button {
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        background: #57E18B;
+        color: white;
+        transition: 0.5s;
+        display: flex;
+  
+        svg {
+          width: 50px;
+          fill: white;
+        }
+      }
+  
+      #prev {
+        transform: rotate(180deg);
+      }
+  
+      button:hover {
+        background: #32b665;
+      }
+    }
+  
+    #techSkillsGrid {
+      display: grid;
+      margin-top: -50px;
+      padding: 60px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      width: 100%;
+  
+  
+      div {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        border-radius: 15px;
+        transition: 0.5s;
+        height: 35vh;
+      }
+  
+      p {
+        font-size: 22px;
+        margin-top: auto;
+      }
+  
+      .fade-out {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+  
+      .fade-in {
+        opacity: 1;
+        transition: opacity 0.4s ease;
+      }
+  
+    }
+  
+    #generalSkl {
+      font-size: 42px;
+      display: flex;
+      width: 97%;
+      margin: 0 0 10px 3%;
+    }
+  
+    #generalSkillsCarousel {
+      display: grid;
+      grid-template-columns: 60px 1fr 60px;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+  
+      button {
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        background: #57E18B;
+        color: white;
+        transition: 0.5s;
+        display: flex;
+  
+        svg {
+          width: 50px;
+          fill: white;
+        }
+      }
+  
+      #prevGeneral {
+        transform: rotate(180deg);
+      }
+  
+      button:hover {
+        background: #32b665;
+      }
+    }
+  
+    #generalSkillsGrid {
+      display: grid;
+      margin-top: -50px;
+      padding: 60px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      width: 100%;
+  
+      div {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        border-radius: 15px;
+        transition: 1s;
+        height: 35vh;
+  
+        p {
+          font-size: 30px;
+          margin-top: auto;
+          text-align: center;
+        }
+      }
+    }
+  
+    /* mesmas animações */
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+  
+    .fade-in {
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+  
+  }
+  
+  #imgHover:hover {
+    transform: scale(1.1);
+    z-index: 3;
+  }
+  
+  /* PROJECT SECTION */
+  
+  #projectSection {
+    width: 100%;
+    padding: 40px 0;
+    overflow-x: hidden;
+  
+    #projectTitle {
+      font-size: 60px;
+      margin: 0 0 100px 5%;
+      border-bottom: 2px solid gray;
+      width: fit-content;
+      padding-bottom: 4px;
+      color: white;
+    }
+  
+    #projectFlex {
+      display: flex;
+      flex-direction: column;
+      gap: 150px;
+      width: 100%;
+      margin: 0;
+    }
+  
+    .project {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      left: 10%; 
+  
+  
+  
+      img {
+        width: 200px;
+        border: 3px solid white;
+        border-radius: 15px;
+        display: block;
+        transition: all 1s ease;
+      }
+  
+      img:hover {
+        transform: scale(1.2);
+      }
+    }
+  
+    .pMargin {
+      width: auto;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .projectInfo {
+      color: white;
+      font-size: 25px;
+  
+      h1 {
+        margin: 0 0 20px 15px;
+        padding-bottom: 10px;
+      }
+    }
+  
+    .projectBox {
+      width: 530px;
+      background-color: #101016;
+      padding: 30px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  
+      p {
+        width: 100%;
+        margin-top: 20px;
+      }
+  
+      a {
+        color: white;
+        margin-top: 40px;
+        text-decoration: underline;
+      }
+    }
+  
+    #projecBtns {
+      display: flex;
+      width: 100%;
+      opacity: 0;
+      position: relative;
+  
+      #projectPreviousBtn {
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        height: 60px;
+  
+        img {
+          height: 55px;
+        }
+      }
+  
+      #projectNextBtn {
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        height: 60px;
+        margin-top: 2px;
+      position: absolute;
+      right: 0;
+  
+        img {
+          height: 55px;
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  
+  #githubSection {
+    height: auto;
+    width: 100%;
+    margin-top: 3%;
+    display: flex;
+  
+    #githubPainel {
+      height: 70vh;
+      width: 90%;
+      margin-left: 5%;
+      background-color: var(--galaxy-blue);
+      border-radius: 40px;
+  
+      #gitImg {
+        justify-self: center;
+        margin-top: 2%;
+      }
+  
+      #gitText {
+        justify-self: center;
+        margin-top: 4%;
+        text-align: center;
+      }
+  
+      #gitButton {
+        margin-top: 3%;
+        border-radius: 20px;
+        border: 2px solid white;
+        justify-self: center;
+        cursor: pointer;
+        background-color: transparent;
+        transition: all 0.7s ease;
+        position: relative;
+        display: flex;
+        align-items: center;
+  
+        a {
+          color: white;
+        }
+  
+        #btnText {
+          text-decoration: underline;
+
+          
+  
+          img {
+            position: absolute;
+            right: 0;
+          }
+        }
+      }
+  
+      #gitButton:hover {
+        background-color: #403c64;
+        transform: scale(1.05);
+      }
+  
+    }
+  }
+  
+  #contactSection {
+    width: 100%;
+    height: auto;
+  
+    #contactTitle {
+      font-size: 60px;
+  
+    }
+  
+    #contactGrid {
+      display: grid;
+     
+      grid-auto-rows: 1fr;
+      font-size: 35px;
+  
+  
+  
+      #cGrid1 {
+        display: flex;
+        flex-direction: column;
+  
+  
+  
+        #contactIMG {
+          width: 800px;
+        }
+  
+        #or {
+  
+          letter-spacing: 5px;
+        }
+  
+        #phone {
+          display: flex;
+          position: relative;
+          align-items: center;
+  
+  
+  
+          #wppIMG {
+            width: 100px;
+            padding-right: 20px;
+          }
+        }
+  
+  
+      }
+  
+      #cGrid2 {
+  
+        border: 1px solid gray;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+  
+        form {
+          display: flex;
+          flex-direction: column;
+          width: 90%;
+          margin-left: 5%;
+          gap: 40px;
+  
+  
+          input {
+            height: 50px;
+            background-color: rgba(29, 14, 42, 0.2);
+            border: 1px solid #D9D9D9;
+            border-radius: 20px;
+            font-size: 20px;
+            color: white;
+            padding: 10px;
+          }
+  
+          textarea {
+            height: 60px;
+            background-color: rgba(29, 14, 42, 0.2);
+            border: 1px solid #D9D9D9;
+            border-radius: 20px;
+            font-size: 20px;
+            color: white;
+            padding: 10px;
+            resize: vertical;
+          }
+  
+          textarea::placeholder {
+            color: white;
+          }
+  
+          input::placeholder {
+            color: white;
+          }
+  
+          #messageIP {
+            height: 35vh;
+          }
+  
+          #submitBtn {
+            height: 70px;
+            background-color: rgba(29, 14, 42, 0.2);
+            border: 1px solid #D9D9D9;
+            border-radius: 15px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 1s;
+          }
+  
+          #submitBtn:hover {
+            background: var(--hover-submit);
+          }
+        }
+      }
+    }
+  
+    #bar {
+      width: 90%;
+      margin-top: 7%;
+      margin-left: 5%;
+      border: 1px solid gray;
+    }
+  }
+  
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    text-align: center;
+    gap: 10px;
+  
+    #rights {
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+  
+    #emailFoot {
+      transition: 0.5s;
+      padding: 3px 10px 3px 10px;
+      text-decoration: underline;
+      border-radius: 5px;
+    }
+  
+    #emailFoot:hover {
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  
+    #linksFoot {
+      margin-top: 10px;
+  
+      img {
+        margin-left: 5px;
+      }
+  
+  
+    }
+  }
+  
+  
+  
+  /*FONTES*/
+  .indie-flower-regular {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .josefin-slab {
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .inknut-antiqua-regular {
+    font-family: "Inknut Antiqua", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .harmattan-regular {
+    font-family: "Harmattan", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .labrada-regular {
+    font-family: "Labrada", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* MEDIA QUERY PARA CELULAR */
+  @media (max-width: 550px) {
+  
+    /* Header */
+    header {
+      font-size: 20px;
+      margin-top: -20px;
+  
+      #logoHead {
+        width: 120px;
+        margin-left: -30px;
+      }
+  
+      #email {
+        display: none;
+      }
+  
+      .pages {
+        display: none;
+      }
+  
+      section {
+        gap: 20px;
+  
+        .switch {
+          margin-right: 60px;
+        }
+      }
+    }
+
+    #menuAsidePhone{
+    font-size: 45px;
+
+    #logoEmail{
+      font-size: 25px;
+    }
+
+    #logoHead{
+      width: 120px;
+      margin-left: -72px;
+      margin-top: 6px;
+    }
+  }
+  
+    /* PRESENTATION */
+  
+    #user {
+      margin-top: -30px;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr);
+  
+      #presentation {
+        padding: 2% 0 0 0;
+  
+      }
+
+      .WIM{
+        font-size: 33px;
+      }
+  
+      .aboutUser {
+        font-size: 40px;
+        width: 100%;
+        text-align: center;
+  
+      }
+  
+      .userDescription {
+        font-size: 1.4rem;
+      width: 100%;
+      text-align: center;
+      display: block;
+      }
+  
+      #userBTNS {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+  
+        button {
+          margin: 0;
+        }
+      }
+  
+      #userPhoto {
+        width: 250px;
+        height: 250px;
+        margin: 0;
+      }
+  
+      #cvButton {
+        margin: 3% 0 0 32%;
+      }
+  
+      #photoDiv {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+  
+      #cvBtnDiv {
+        display: flex;
+        justify-content: center;
+  
+  
+        #cvButton {
+          margin: 3% 0 0 0;
+        }
+      }
+    }
+  
+    /* ABOUT ME */
+  
+    #aboutMe {
+      overflow-x: hidden;
+  
+      p {
+        font-size: 20px;
+        text-align: justify;
+        margin-top: 5%;
+      }
+  
+      /* SKILLS SECTION */
+  
+      #sklFlex {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+  
+        #skills {
+          width: auto;
+        }
+      }
+  
+      #techSkl {
+        margin-top: 25px;
+        justify-content: center;
+        width: 100%;
+        font-style: italic;
+        font-size: 50px;
+        margin: 0;
+        margin-top: 10%;
+      }
+  
+      #techSkillsCarousel {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;  
+        justify-content: center;
+  
+        button {
+          display: flex;
+          justify-content: center;
+          width: 16%;
+          margin: 10px 0;
+          padding: 15px;
+          height: 15vh;
+  
+          svg {
+            width: 30px;
+          }
+        }
+      }
+  
+      #techSkillsGrid {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+        gap: 20px;
+        padding: 10px 10px;
+        width: auto;
+  
+        img {
+          height: 17vh;
+        }
+  
+        div {
+          padding: -10vh;
+          height: auto;
+          width: 26vh;
+        }
+      }
+  
+      #generalSkl {
+        margin-top: 25px;
+        justify-content: center;
+        width: 100%;
+        font-style: italic;
+        font-size: 50px;
+        margin: 0;
+        margin-top: 5%;
+      }
+  
+      #generalSkillsCarousel {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        justify-content: center;
+  
+        button {
+          display: flex;
+          justify-content: center;
+          width: 16%;
+          margin: 10px 0;
+          padding: 15px;
+          height: 15vh;
+  
+          svg {
+            width: 30px;
+          }
+        }
+      }
+  
+      #generalSkillsGrid {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+        gap: 20px;
+        padding: 10px 10px;
+        width: auto;
+  
+        img {
+          height: 12vh;
+        }
+  
+        div {
+          height: auto;
+          width: auto;
+          
+        }
+      }
+    
+    }
+  
+    /* PROJECT SECTION */
+  
+    #projectSection {
+      overflow-x: hidden;
+  
+  
+      #projectTitleFlex {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: auto;
+      }
+  
+      #projectTitle {
+        margin-bottom: 40px;
+      }
+  
+      #projectFlex {
+        display: grid;
+        grid-template-columns: repeat(4, 100%);
+        transition: transform 0.7s ease;
+        width: 100%;
+        gap: 0;
+      }
+  
+      #projecBtns {
+        opacity: 1;
+      }
+  
+      .project {
+        left: 0;
+        gap: 1.5%;
+        
+        align-items: flex-end;
+        margin-left: 2%;
+  
+        img {
+          width: 130px;
+        }
+      }
+  
+      .pMargin{
+        width: 100%;
+      }
+  
+      .projectInfo {
+        font-size: 20px;
+        
+  
+        h1 {
+          margin: 0 0 20px 0;
+        }
+      }
+  
+      .projectBox {
+        width: 92%;
+        margin-left: 2%;
+        height: 200px;
+        padding-top: 1px;
+
+        p{
+          font-size: 18px;
+        }
+      }
+    }
+  
+  
+    /* GITHUB SECTION */
+  
+    #githubSection {
+
+      overflow-x: hidden;
+  
+      #githubPainel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding: 10px;
+      }
+  
+      #gitText {
+        font-size: 25px;
+        width: 95%;
+      }
+  
+      #gitButton {
+        width: 90%;
+        height: 7vh;
+  
+        #btnText {
+          padding: 0 0 0 35px;
+          
+          font-size: 30px;
+        }
+  
+        img {
+          height: 50px;
+          
+        }
+      }
+    }
+  
+    /* CONTACT SECTION*/
+  
+    #contactSection {
+      overflow-x: hidden;
+    }
+  
+    #contactFlex {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  
+    #contactTitle {
+      margin: 7% 0 3% 0;
+    }
+  
+    #cGrid1 {
+  
+  
+      #contactIMG {
+        width: 800px;
+        opacity: 0;
+        z-index: -1;
+      }
+  
+      #orFlex {
+        display: flex;
+        justify-content: center;
+        width: 55%;
+        margin-top: 140px;
+      }
+  
+      #or {
+        margin-left: 0;
+        letter-spacing: 5px;
+      }
+  
+      #phoneFlex {
+        display: flex;
+        margin-left: 2%;
+        width: 50%;
+      }
+  
+      #phone {
+        display: flex;
+        position: relative;
+        align-items: center;
+        white-space: nowrap;
+        font-size: 30px;
+  
+  
+      }
+    }
+  
+  
+  
+    #cGrid2 {
+      position: absolute;
+      left: 0;
+      width: 90%;
+      margin-left: 5%;
+      height: auto;
+      padding: 15px 0 15px 0;
+    }
+  
+  
+    /* FOOTER */
+    footer {
+      overflow-x: hidden;
+      font-size: 16px;
+      gap: 5px;
+      padding: 15px;
+      text-align: center;
+      height: auto;
+    }
+  
+    #logoFoot img {
+      width: 150px;
+      margin-top: -13px;
+      gap: 5px;
+    }
+  
+    #emailFoot {
+      font-size: 20px;
+      margin-top: -20px;
+    }
+  
+    #linksFoot {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+  
+    #linksFoot img {
+      width: 30px;
+    }
+  
+    #inspPhrase {
+      margin-top: -5;
+      font-size: 17px;
+    }
+  
+    #rights {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+  }
+  
+  @media (min-width: 551px) and (max-width: 1100px){
+
+    /* HEADER*/
+    header{
+
+      #email{
+        margin-left: -5%;
+      }
+  
+      .pages {
+        display: none;
+      }
+  
+      section {
+        gap: 20px;
+  
+        .switch {
+          margin-right: 90px;
+          margin-top: -3px;
+        }
+      }
+
+      
+    }
+
+    #menuAsidePhone{
+      font-size: 60px;
+
+      #logoEmail{
+        font-size: 40px;
+        text-decoration: underline;
+      }
+
+      #logoHead{
+        width: 215px;
+        margin-left: -180px;
+        margin-top: 25px;
+      }
+
+      #rights{
+        font-size: 30px;
+        white-space: nowrap;
+      }
+
+      #menuPhone{
+        font-size: 60px;
+      }
+    }
+  
+  
+  #user {
+    margin-top: -30px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  
+    #presentation {
+      padding: 2% 0 0 0;
+  
+    }
+  
+    .aboutUser {
+      font-size: 45px;
+      width: 100%;
+      text-align: center;
+  
+    }
+  
+    .userDescription {
+      font-size: 2.2rem;
+      width: 85%;
+      text-align: center;
+      display: block;
+      margin-left: 7.5%;
+    }
+  
+    button {
+      height: 35px;
+      width: 150px;
+      font-size: 22px;
+      border-radius: 15px;
+      border: 0;
+      cursor: pointer;
+      margin-left: 27%;
+    }
+
+    #userBTNS {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      gap: 20px;
+      
+  
+      button {
+        margin: 0;
+        height: 60px;
+        width: 180px;
+        font-size: 30px;
+      }
+    }
+  
+    #userPhoto {
+      width: 320px;
+      height: 320px;
+      margin: 0;
+    }
+  
+    #cvButton {
+      margin: 3% 0 0 32%;
+      height: 60px;
+      width: 260px;
+    }
+  
+    #photoDiv {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  
+    #cvBtnDiv {
+      display: flex;
+      justify-content: center;
+  
+  
+      #cvButton {
+        margin: 3% 0 0 0;
+      }
+    }
+  }
+
+  #slideDown {
+    margin-top: 32%;
+  }
+
+  /* ABOUT ME SECTION */
+
+  #aboutMe {
+    overflow-x: hidden;
+
+    p {
+      font-size: 25px;
+      text-align: justify;
+      margin-top: 5%;
+    }
+
+    /* SKILLS SECTION */
+
+    #sklFlex {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+
+      #skills {
+        width: auto;
+      }
+    }
+
+    #techSkl {
+      margin-top: 25px;
+      justify-content: center;
+      width: 100%;
+      font-style: italic;
+      font-size: 50px;
+      margin: 0;
+      margin-top: 10%;
+    }
+  
+  
+   
+    #techSkillsCarousel {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px;
+      justify-content: center;
+
+      button {
+        display: flex;
+        justify-content: center;
+        width: 16%;
+        margin: 10px 0;
+        padding: 15px;
+        height: 15vh;
+
+        svg {
+          width: 30px;
+        }
+      }
+    }
+
+    #techSkillsGrid {
+      grid-template-columns: 1fr;
+      margin-top: 0;
+      gap: 20px;
+      padding: 10px 10px;
+      width: auto;
+      
+
+      img {
+        height: 17vh;
+      }
+
+      div {
+        height: 21vh;
+        width: 26vh;
+      }
+    }
+
+    #generalSkl {
+      margin-top: 25px;
+      justify-content: center;
+      width: 100%;
+      font-style: italic;
+      font-size: 50px;
+      margin: 0;
+      margin-top: 5%;
+    }
+
+    #generalSkillsCarousel {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px;
+      justify-content: center;
+
+      button {
+        display: flex;
+        justify-content: center;
+        width: 16%;
+        margin: 10px 0;
+        padding: 15px;
+        height: 15vh;
+
+        svg {
+          width: 30px;
+        }
+      }
+    }
+
+
+    #generalSkillsGrid {
+      grid-template-columns: 1fr;
+      margin-top: 0;
+      gap: 20px;
+      padding: 10px 10px;
+      width: auto;
+
+      img {
+        height: 12vh;
+      }
+
+      div {
+        height: 21vh;
+        width: 26vh;
+      }
+    }
+  }
+
+  /* PROJECT SECTION */
+
+  #projectSection {
+
+  #projectFlex {
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+    .project{
+      left: 0;
+    }
+
+    .pMargin{
+      margin: 0;
+    }
+
+  }
+
+  /* GITHUB SECTION */
+  
+  #githubSection {
+  
+    overflow-x: hidden;
+
+    #githubPainel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+    }
+
+    #gitText {
+      font-size: 35px;
+      width: 95%;
+    }
+
+    #gitButton {
+      width: 90%;
+      height: 7vh;
+      display: flex;
+      align-items: center;
+
+      #btnText {
+        padding: 0 0 0 35px;
+        margin-top: 1%;
+        font-size: 35px;
+      }
+
+      img {
+        height: 70px;
+        top: 0;
+      }
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* CONTACT SECTION*/
+    
+  #contactSection {
+    overflow-x: hidden;
+  }
+
+  #contactGrid {
+
+    grid-template-columns: 1fr;
+  }
+  
+  #contactFlex {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #contactTitle {
+    margin: 7% 0 3% 0;
+  }
+  
+  #cGrid1 {
+  
+  
+    #contactIMG {
+      width: 800px;
+      opacity: 0;
+      z-index: -1;
+    }
+  
+    #orFlex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 300px;
+    }
+  
+    #or {
+      letter-spacing: 5px;
+
+    }
+  
+    #phoneFlex {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  
+    #phone {
+      display: flex;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+  
+  
+    }
+  }
+  
+  
+  
+  #cGrid2 {
+    position: absolute;
+    left: 0;
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    padding: 15px 0 15px 0;
+  }
+}
+
+  
+  
+  @media (min-width: 1101px) {
+  
+    header {
+  
+      .toggle {
+        display: none;
+  
+      }
+  
+      #menuPhone {
+        display: none;
+      }
+  
+      #menuAsidePhone {
+        display: none;
+      }
+    }
+  
+    /* PRESENTATION */
+  
+    #user {
+      .aboutUser {
+        margin-left: 25%;
+      }
+  
+      .userDescription {
+        margin-left: 25%;
+        font-size: 1.6rem;
+        width: 55%;
+      }
+  
+      .WIM {
+        font-size: 50px;
+  
+        span {
+          display: block;
+        }
+      }
+    }
+  
+    #slideDown {
+      margin-top: 50px;
+    }
+  
+    /* ABOUT ME SECTION*/
+  
+    #aboutMe {
+  
+      p {
+        font-size: 32px;
+        margin-top: 3%;
+      }
+    }
+  
+    /* PROJECTS SECTION*/
+  
+  
+    /* GITHUB SECTION*/
+  
+    #githubSection {
+  
+      #gitText {
+        font-size: 40px;
+      }
+  
+      #gitButton {
+        width: 50%;
+        height: 10vh;
+  
+        #btnText {
+          margin: -10px 0 0 35px;
+          font-size: 45px;
+        }
+  
+        img {
+          top: -2%;
+        }
+      }
+    }
+  
+    /* CONTACT SECTION */
+  
+    #contactTitle {
+      margin: 4% 0 0 13%;
+    }
+
+    #contactGrid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    #cGrid1 {
+  
+      #or {
+        margin-left: calc(40% - 5px);
+      }
+  
+      #phone {
+        margin-left: 20%;
+  
+        svg {
+          width: 99px;
+        }
+      }
+    }
+  
+    #cGrid2 {
+      width: 70%;
+      margin-left: 10%;
+      padding: 1%;
+    }
+  }

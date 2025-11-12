@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Cícero</title>
+
+  <link rel="icon" href="assets/logo1.png" type="image/png">
+  <link rel="stylesheet" href="styleEN.css">
+  <script src="scriptEN.js" defer></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Harmattan:wght@400;500;600;700&family=Indie+Flower&family=Inknut+Antiqua:wght@300..900&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Labrada:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+<!-- https://www.figma.com/design/1NY7BUJEnOVB1YPhIH3IXv/Portfolio?node-id=0-1&t=JJF2twJb2RIHprzV-1 -->
+
+
+
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <img id="logoHead" src="assets/logo.png" alt="Logo">
+
+    <div id="copied" class="hidden">E-mail copied!</div>
+
+    <div id="email" class="indie-flower-regular" onclick="copyEmail()">
+      cicerolucasmp@gmail.com
+    </div>
+
+
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox" class="toggle">
+      <div class="bars" id="bar1"></div>
+      <div class="bars" id="bar2"></div>
+      <div class="bars" id="bar3"></div>
+    </label>
+
+
+    <aside id="menuAsidePhone">
+
+      <div id="logoEmail">
+        <div><img id="logoHead" src="assets/logo.png" alt="Logo"></div>
+        <div id="emailMenu" class="indie-flower-regular" onclick="copyEmail()">
+          cicerolucasmp@gmail.com
+        </div>
+      </div>
+
+      <div id="menuPhone">
+        <a class="josefin-slab">Home</a>
+        <a href="#aboutMe" class="josefin-slab ">About Me</a>
+        <a href="#skills" class="josefin-slab">Skills</a>
+        <a href="#projectSection" class="josefin-slab">Projects</a>
+        <a href="#contactSection" class="josefin-slab">Contact</a>
+      </div>
+
+      <div class="indie-flower-regular" id="rights">Cícero Lucas Moreira de Paula © 2025 All rights reserved</div>
+    </aside>
+
+    <section id="menu">
+      <a href="" class="josefin-slab pages">Home</a>
+      <a href="#aboutMe" class="josefin-slab pages">About Me</a>
+      <a href="#skills" class="josefin-slab pages">Skills</a>
+      <a href="#projectSection" class="josefin-slab pages">Projects</a>
+      <a href="#contactSection" class="josefin-slab pages">Contact</a>
+
+      <!-- LANGUAGE SWITCH -->
+      <div id="language">
+        <input id="lnCheck" type="checkbox">
+        <button id="dropLanguage" class="josefin-slab">
+          <img src="assets/Globe.png" alt="Globe"> EN
+        </button>
+        <aside id="lnAside">
+          <ul>
+
+            <li id="ptbr"><a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px"
+                  height="800px" viewBox="0 0 36 36" aria-hidden="true" role="img" class="iconify iconify--twemoji"
+                  preserveAspectRatio="xMidYMid meet">
+                  <path fill="#009B3A" d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v18z" />
+                  <path fill="#FEDF01" d="M32.728 18L18 29.124L3.272 18L18 6.875z" />
+                  <circle fill="#002776" cx="17.976" cy="17.924" r="6.458" />
+                  <path fill="#CBE9D4"
+                    d="M12.277 14.887a6.406 6.406 0 0 0-.672 2.023c3.995-.29 9.417 1.891 11.744 4.595c.402-.604.7-1.28.883-2.004c-2.872-2.808-7.917-4.63-11.955-4.614z" />
+                  <path fill="#88C9F9" d="M12 18.233h1v1h-1zm1 2h1v1h-1z" />
+                  <path fill="#55ACEE" d="M15 18.233h1v1h-1zm2 1h1v1h-1zm4 2h1v1h-1zm-3 1h1v1h-1zm3-6h1v1h-1z" />
+                  <path fill="#3B88C3" d="M19 20.233h1v1h-1z" />
+                </svg>
+                Português</a></li>
+
+
+            <li id="lnEn"><a href="indexEN.html">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px"
+                  height="800px" viewBox="0 0 36 36" aria-hidden="true" role="img" class="iconify iconify--twemoji"
+                  preserveAspectRatio="xMidYMid meet">
+                  <path fill="#00247D"
+                    d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z" />
+                  <path fill="#CF1B2B"
+                    d="M25.14 23l9.712 6.801a3.977 3.977 0 0 0 .99-1.749L28.627 23H25.14zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943V23zm10-10h2.141l9.711-6.8a3.988 3.988 0 0 0-1.937-1.085L23 12.057V13zm-12.141 0L1.148 6.2a3.994 3.994 0 0 0-.991 1.749L7.372 13h3.487z" />
+                  <path fill="#EEE"
+                    d="M36 21H21v10h2v-5.836L31.335 31H32a3.99 3.99 0 0 0 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36v-2zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21H0zM36 9a3.983 3.983 0 0 0-1.148-2.8L25.141 13H23v-.943l9.915-6.942A4.001 4.001 0 0 0 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059V9zM13 5v5.837L4.664 5H4a3.985 3.985 0 0 0-2.852 1.2l9.711 6.8H7.372L.157 7.949A3.968 3.968 0 0 0 0 9v.059L5.628 13H0v2h15V5h-2z" />
+                  <path fill="#CF1B2B" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z" />
+                </svg>
+                English</a></li>
+
+          </ul>
+        </aside>
+      </div>
+
+      <!-- THEME SWITCH -->
+
+      <label class="switch">
+        <input type="checkbox" onclick="darkMode()" id="check">
+        <span class="slider"></span>
+    </label>
+    </section>
+  </header>
+
+  <!-- USER PRESENTATION -->
+  <section id="user">
+    <div id="presentation">
+      <p class="aboutUser josefin-slab">
+        Hello, I'm Cícero! <br>
+        <span class="WIM inknut-antiqua-regular">I'm a <span>Developer</span> </span>
+      </p>
+
+      <p class="userDescription josefin-slab">
+        Passionate about coding, I specialize in
+        delivering complete web solutions
+        in frontend design to backend development
+      </p>
+
+      <div id="userBTNS">
+        <a href="https://github.com/CiceroLMP" target="_blank"><button id="btnView" class="harmattan-regular">View
+            Projects</button></a>
+        <a href="#contactSection"><button id="btnContact" class="harmattan-regular">Contact Me</button></a>
+      </div>
+    </div>
+
+    <div>
+      <div id="photoDiv">
+        <div id="userPhoto">
+          <img src="assets/eu.png" alt="User photo">
+        </div>
+      </div>
+
+      <div id="cvBtnDiv">
+        <a href="Currículo - Cícero.pdf" download class="josefin-slab" id="cvButton" onclick="handleCVButtonClick()">
+          Download my CV
+          <img src="assets/Arrow right.png" alt="Arrow">
+        </a>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- SCROLL DOWN -->
+  <div id="slideDown">
+    <a href="#aboutMe">
+      <img src="assets/Arrow down-circle.png" alt="Arrow down">
+    </a>
+  </div>
+
+  <!-- ABOUT ME -->
+  <section id="aboutMe">
+    <div id="boxFlex1">
+      <div class="labrada-regular" id="title">
+        About Me
+        <p class="josefin-slab">
+          Hello! My name is Cícero, I’m 16 years old and currently studying at Cotemig, Floresta unit.
+          I enjoy coding and developing projects, and I have experience with C# and JavaScript.
+          I’m more proficient in HTML, CSS, and MySQL, and I’m always eager to learn new technologies
+          and improve my skills as a developer. I enjoy exploring different types of projects and
+          constantly challenge myself to grow, both technically and creatively, while balancing my studies
+          and other interests outside of coding.
+        </p>
+      </div>
+    </div>
+
+    <div id="sklFlex">
+      <div id="skills" class="labrada-regular">My Skills</div>
+    </div>
+    <!-- TECH SKILLS -->
+    <div class="labrada-regular" id="techSkl">Tech Skills</div>
+    <div id="techSkillsCarousel">
+      <button id="prev"><svg xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+          <path
+            d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z" />
+        </svg></button>
+      <div id="techSkillsGrid">
+
+      </div>
+      <button id="next"><svg xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+          <path
+            d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z" />
+        </svg></button>
+    </div>
+
+    <!-- GENERAL SKILLS -->
+    <div class="labrada-regular" id="generalSkl">General Skills</div>
+    <div id="generalSkillsCarousel">
+      <button id="prevGeneral">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+          <path
+            d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z" />
+        </svg>
+      </button>
+
+      <div id="generalSkillsGrid">
+
+      </div>
+
+      <button id="nextGeneral">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+          <path
+            d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z" />
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+
+
+  <section id="projectSection">
+
+    <div id="projectTitleFlex">
+      <div id="projectTitle" class="labrada-regular">Projects</div>
+    </div>
+
+    <div id="projectFlex">
+
+      <!-- Project 1 -->
+      <div class="project">
+        <div class="projectImg">
+          <a href="https://cicerolmp.github.io/ReproducaoSite1/" target="_blank"><img src="assets/belara.png"
+              alt="Belara"></a>
+        </div>
+        <div class="projectInfo">
+          <h1 class="labrada-regular">Belara</h1>
+          <div class="projectBox">
+            <p class="josefin-slab">
+              This website is a reproduction built with
+              Position and Display Inline-Block.
+            </p>
+            <a href="https://cicerolmp.github.io/ReproducaoSite1/" target="_blank" class="josefin-slab">Click on the
+              photo or here to see more</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project pMargin">
+        <div class="projectImg">
+          <a href="https://cicerolmp.github.io/ReproducaoSite2/" target="_blank"><img src="assets/bitmap.png"
+              alt="BitMap"></a>
+        </div>
+        <div class="projectInfo">
+          <h1 class="labrada-regular">BitMap</h1>
+          <div class="projectBox">
+            <p class="josefin-slab">
+              This website is a reproduction built with Display Flex.
+            </p>
+            <a href="https://cicerolmp.github.io/ReproducaoSite2/" target="_blank" class="josefin-slab">Click on the
+              photo or here to see more</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project">
+        <div class="projectImg">
+          <a href="https://cicerolmp.github.io/ReproducaoSiteGrid/" target="_blank"><img src="assets/tulen.png"
+              alt="Tulen"></a>
+        </div>
+        <div class="projectInfo">
+          <h1 class="labrada-regular">Tulen</h1>
+          <div class="projectBox">
+            <p class="josefin-slab">
+              This website is a reproduction built with Display Grid.
+            </p>
+            <a href="https://cicerolmp.github.io/ReproducaoSiteGrid/" target="_blank" class="josefin-slab">Click on the
+              photo or here to see more</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project pMargin">
+        <div class="projectImg">
+          <a href="https://cicerolmp.github.io/OtakuYa/" target="_blank"><img src="assets/otakuya.png"
+              alt="Otaku-Ya"></a>
+        </div>
+        <div class="projectInfo">
+          <h1 class="labrada-regular">Otaku-Ya</h1>
+          <div class="projectBox">
+            <p class="josefin-slab">
+              This website was fully created by me, including both the design and the coding.
+            </p>
+            <a href="https://cicerolmp.github.io/OtakuYa/" target="_blank" class="josefin-slab">Click on the photo or
+              here to see more</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="projecBtns">
+      <button id="projectPreviousBtn" class="labrada-regular">
+        <img src="assets/projectBTN.png" alt="">
+        Previous</button>
+
+
+      <button id="projectNextBtn">Next
+        <img src="assets/projectBTN.png" alt="">
+      </button>
+    </div>
+  </section>
+
+  <section id="githubSection">
+    <div id="githubPainel">
+
+      <div id="gitImg">
+        <img src="assets/githubCircle.png" alt="">
+      </div>
+
+      <div id="gitText" class="labrada-regular">
+        Click in the button below to access all of my repositories on GitHub
+      </div>
+
+      <div id="gitButton">
+
+        <a href="https://github.com/CiceroLMP" target="_blank">
+          <div id="btnText" class="labrada-regular">
+            See All
+            <img src="assets/Arrow up-right.png" alt="">
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contactSection">
+    <div id="contactFlex">
+      <div id="contactTitle" class="labrada-regular">Contact Me</div>
+    </div>
+    <div id="contactGrid">
+      <div id="cGrid1">
+        <img id="contactIMG" src="assets/contactIMG.png" alt="">
+        <div id="orFlex">
+          <div class="labrada-regular" id="or">or</div>
+        </div>
+        <div id="phoneFlex">
+          <div id="phone">
+            <img id="wppIMG" src="assets/whatsapp.png" alt="">
+            +55 31 9 9741-2925
+          </div>
+        </div>
+      </div>
+
+      <div id="cGrid2">
+        <form action="">
+          <input type="text" id="nameIP" placeholder="Name:" class="labrada-regular" required>
+          <input type="email" placeholder="Email:" class="labrada-regular" required>
+          <textarea name="" id="messageIP" placeholder="Send me a message..." class="labrada-regular"
+            required></textarea>
+          <input type="submit" id="submitBtn" value="S E N D">
+        </form>
+      </div>
+    </div>
+
+    <div id="bar"></div>
+  </section>
+
+  <footer>
+    <div id="logoFoot"><img src="assets/logo.png" alt=""></div>
+    <div class="indie-flower-regular" id="emailFoot" onclick="copyEmail2()">cicerolucasmp@gmail.com</div>
+    <div class="labrada-regular">My links/profile here</div>
+    <div id="linksFoot">
+      <a href="https://github.com/CiceroLMP" target="_blank"><img src="assets/Github.png" alt=""></a>
+      <a href="https://www.linkedin.com/in/ciceroLMP/" target="_blank"><img src="assets/linkedin 1.png" alt=""></a>
+      <a href="https://www.instagram.com/cicero.llucas/#" target="_blank"><img src="assets/Instagram.png" alt=""></a>
+
+    </div>
+
+    <div class="indie-flower-regular" id="inspPhrase">Don’t think about tomorrow, forget about your sorrow
+      <br> - Red Velvet
+    </div>
+
+    <div class="indie-flower-regular" id="rights">Cícero Lucas Moreira de Paula © 2025 All rights reserved</div>
+  </footer>
+
+
+
+</body>
+
+</html>
