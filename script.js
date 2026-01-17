@@ -240,5 +240,60 @@ addEventListener("DOMContentLoaded", () => {
 });
 
 
+emailjs.init("B_QCiOTu0li-6e6hB");
 
-/* LOCAL STORAGE DARK MODE */
+document.getElementById("contactForm").addEventListener("submit", function(Event){
+event.preventDefault()
+
+  const formData = {
+    name: document.getElementById("nameIP").value,
+    email: document.getElementById("emailIP").value,
+    subject: document.getElementById("subjectIP").value,
+    message: document.getElementById("messageIP").value,
+  }
+
+  const serviceID = "service_1d9xe73";
+  const templateID ="template_xdmqve7";
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.textContent = "Enviando...";
+  submitBtn.disabled = true;
+
+
+  emailjs.send(serviceID,templateID, formData)
+  .then(() =>{
+    Toastify({
+      text: "E-mail enviado com sucesso!",    
+      duration: 2000,
+
+      style:{
+        background: "#28a745",
+        color: "f4f4f4"
+      },
+      
+      }).showToast();
+
+      document.getElementById("contactForm").reset();
+  })
+
+
+  .catch((error) =>{
+    Toastify({
+      text: "Erro ao enviar o e-mail!",
+      style:{
+        background: "#dc3545",
+        color: "f4f4f4"
+      },     
+      }).showToast();
+    console.error("Erro no envio", error);
+  })
+
+
+  .finally(() => {
+    submitBtn.textContent = "E N V I A R"
+    submitBtn.disabled = false;
+  })
+  
+
+  console.table(formData);
+});
+   
