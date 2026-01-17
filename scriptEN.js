@@ -240,4 +240,59 @@ addEventListener("DOMContentLoaded", () => {
 });
 
 
+emailjs.init("B_QCiOTu0li-6e6hB");
 
+document.getElementById("contactForm").addEventListener("submit", function(Event){
+event.preventDefault()
+
+  const formData = {
+    name: document.getElementById("nameIP").value,
+    email: document.getElementById("emailIP").value,
+    subject: document.getElementById("subjectIP").value,
+    message: document.getElementById("messageIP").value,
+  }
+
+  const serviceID = "service_1d9xe73";
+  const templateID ="template_xdmqve7";
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.textContent = "Sending...";
+  submitBtn.disabled = true;
+
+
+  emailjs.send(serviceID,templateID, formData)
+  .then(() =>{
+    Toastify({
+      text: "Email sent successfully!",    
+      duration: 2000,
+
+      style:{
+        background: "#28a745",
+        color: "f4f4f4"
+      },
+      
+      }).showToast();
+
+      document.getElementById("contactForm").reset();
+  })
+
+
+  .catch((error) =>{
+    Toastify({
+      text: "There was an error sending your email!",
+      style:{
+        background: "#dc3545",
+        color: "f4f4f4"
+      },     
+      }).showToast();
+    console.error("There was an error sending your email!", error);
+  })
+
+
+  .finally(() => {
+    submitBtn.textContent = "S E N D"
+    submitBtn.disabled = false;
+  })
+  
+
+  console.table(formData);
+});
