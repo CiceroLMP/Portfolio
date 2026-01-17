@@ -6,9 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Cícero</title>
 
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
   <link rel="icon" href="assets/logo1.png" type="image/png">
   <link rel="stylesheet" href="styleEN.css">
   <script src="scriptEN.js" defer></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"defer></script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -367,12 +374,12 @@
       </div>
 
       <div id="cGrid2">
-        <form action="">
+        <form method="post" id="contactForm" action="">
           <input type="text" id="nameIP" placeholder="Name:" class="labrada-regular" required>
-          <input type="email" placeholder="Email:" class="labrada-regular" required>
-          <textarea name="" id="messageIP" placeholder="Send me a message..." class="labrada-regular"
-            required></textarea>
-          <input type="submit" id="submitBtn" value="S E N D">
+          <input type="email" id="emailIP" placeholder="Email:" class="labrada-regular" required>
+          <input type="text"  id="subjectIP" id="subject" placeholder="Subject:" class="labrada-regular" required>
+          <textarea name="" id="messageIP" placeholder="Send me a message..." class="labrada-regular"required></textarea>
+            <button type="submit" id="submitBtn">S E N D</button>
         </form>
       </div>
     </div>
