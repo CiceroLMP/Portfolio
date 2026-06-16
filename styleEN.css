@@ -698,6 +698,10 @@
         opacity: 1;
         transition: opacity 0.4s ease;
       }
+
+      img{
+        height: 90%;
+      }
   
     }
   
@@ -765,6 +769,10 @@
           margin-top: auto;
           text-align: center;
         }
+      }
+
+      img{
+        height: 80%;
       }
     }
   
@@ -1611,10 +1619,6 @@
       width: 30px;
     }
   
-    #inspPhrase {
-      margin-top: -5;
-      font-size: 17px;
-    }
   
     #rights {
       font-size: 14px;
