@@ -706,6 +706,10 @@ input:checked + .slider:before {
       transition: opacity 0.4s ease;
     }
 
+    img{
+      height: 90%;
+    }
+
   }
 
   #generalSkl {
@@ -772,6 +776,10 @@ input:checked + .slider:before {
         margin-top: auto;
         text-align: center;
       }
+    }
+
+    img{
+      height: 80%;
     }
   }
 
@@ -1612,12 +1620,6 @@ footer {
 
   #linksFoot img {
     width: 30px;
-  }
-
-  #inspPhrase {
-    margin-top: -5;
-    font-size: 1rem;
-    white-space: nowrap;
   }
 
   #rights {
