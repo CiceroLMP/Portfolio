@@ -59,7 +59,9 @@ const cvButton = document.getElementById("cvButton");
     { img: "assets/html.png", name: "HTML5" },
     { img: "assets/css.png", name: "CSS3" },
     { img: "assets/js.png", name: "JavaScript" },
-    { img: "assets/cSharp.png", name: "C#" },
+    { img: "assets/php.png", name: "PHP" },
+    { img: "assets/laravel.png", name: "Laravel" },
+    { img: "assets/python.png", name: "Python" },
     { img: "assets/mySql.png", name: "SQL" },
   ];
   let start = 0; // índice inicial
